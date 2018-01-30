@@ -15,6 +15,7 @@
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
   <!-- Se vinculan estilos-->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="../css/style.css">
 
 </head>
@@ -35,7 +36,7 @@
           </button>
           <!-- Logo en proceso -->
           <a class="logo white">
-            <h4> < Co-Lab > </h4>
+            <img style="width:50%" src="../assets/images/cl-logo-blanco.png" alt="">
           </a>
         </div>
 
@@ -45,7 +46,7 @@
           <ul class="nav navbar-nav navbar-right text-uppercase">
             <li><a href="#">Mi perfil</a></li>
             <li><a href="#">Amigos</a></li>
-            <li><a href="#">Log-out</a></li>
+            <li><a href="log-in.html">Log-out</a></li>
           </ul>
         </div>
       </div>
@@ -56,20 +57,22 @@
     <div class="row row-sm-height">
 
       <!-- Info personal-->
-      <aside class="col-sm-4 profile-aside">
+      <aside class="col-sm-3 profile-aside">
         <img class="profile-aside-pic" src="../assets/images/friend1.jpg" alt="">
-        <h4 class="profile-title">Nickname</h4>
-        <a href="full-pofile.html">
-          <h4>5ta Generación</h4>
+        <h4 class="profile-title gray">Nickname</h4>
+        <a href="https://www.linkedin.com/">
+          <i class="fa fa-linkedin-square fa-2x white lefted " aria-hidden="true"></i>
         </a>
         <div class="profile-info">
-          <h6 class="text-left">No sé qué más agregar aquí de información, tal véz el e-mail, redes o una biografía pequeña de la alumna...</h6>
+          <h5 class="text-left bio">Me gusta leer y compartir charlas sobre series y películas ¡Me encanta ser Laboratorian!</h5>
         </div>
       </aside>
 
       <!-- Sección de Posts-->
-      <section class="col-sm-6">
+      <section class="col-sm-7">
+        <h1 class="news-title">NEWSFEED </h1>
         <article class="new-post-container">
+
           <input type="text" id="post-title" class="post-title" placeholder="Escribe tu pregunta...">
           <hr class="divider">
           <textarea name="" id="post-body"  class="post-body" cols="1" rows="5" placeholder="Escribe una descripción..."></textarea>
@@ -78,7 +81,7 @@
         <section id="container">
           <article>
             <h2>¿Qué me ayudó a maquetar mejor?</h2>
-            <img src="../assets/images/post1.jpg" />
+            <img src="../assets/images/post1.JPG" />
             <div class="row">
               <p class="col-sm-10">
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.
@@ -91,7 +94,7 @@
 
           <article>
             <h2>S.O.S ¡No encuentro mi error!</h2>
-            <img src="../assets/images/post2.jpg" />
+            <img src="../assets/images/post2.JPG" />
             <div class="row">
               <p class="col-sm-10">
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.
@@ -104,7 +107,7 @@
 
           <article>
             <h2>Reto Foodmap: Sintaxis de Json para manejo de Data</h2>
-            <img src="../assets/images/post3.jpg" />
+            <img src="../assets/images/post3.JPG" />
             <div class="row">
               <p class="col-sm-10">
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.
@@ -119,7 +122,7 @@
 
       <!-- Sección de fotos de amigos y buscador  *esto funciona en celular y Desktop, pero en tablet se hace raro* >.< -->
 <aside class="friends-section col-sm-2">
-  <h5 class="white page-header padd-marg-1 text-uppercase"> <span class="text-uppercase weight-400">Laboratorians </span>en tu red</h5>
+  <h5 class="white page-header padd-marg-1 text-uppercase"> <span class="text-uppercase weight-700">Laboratorians </span>en tu red</h5>
 
   <div class="container-fluid row">
     <div class="form-group col-xs-12">
@@ -162,7 +165,11 @@
               <p class="text-center item-text-style major-data"></p>
             </div>
           </div>
-          <button type="submit" class="btn btn-info">Ver perfil</button>
+          <button type="submit" class="btn btn-info justified inline-block">Ver perfil</button>
+          <br>
+          <div class="modal-footer" style="width:100%">
+            <h4 id="addFriend" class="modal-title-style float-right light-weight">Añadir <i class="fa fa-user-plus float-right inline-block" aria-hidden="true"></i></h4>
+          </div>
         </div>
       </div>
     </div>
@@ -171,12 +178,9 @@
 </div>
 
 
-
-</aside>
-    </div>
   </div>
   <footer class="container-fluid">
-    <h1>FOOTER</h1>
+    <img id="footer-logo" class="white text-center" src="../assets/images/cl-logo.png" alt="">
   </footer>
 
   <!-- Se vincula jQuery-CDN / Data / JS-->

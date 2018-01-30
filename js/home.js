@@ -55,7 +55,7 @@ $(document).ready(function() {
       // Template de Modal, jalando la data y estilos css
       var structure = '<div class = "profPic pic-style inline-block" data-name="' + showing[j].wichGeneration + '" data-adress="' + showing[j].adress + '"data-major="' + showing[j].major + '"data-mail="' + showing[j].mail + '"' + ' id="' + showing[j].name + '">' +
         '<div class="relPosition" data-toggle="modal" data-target="#modal"> <img class="pic-style" src=" ' + showing[j].image + '"' + 'id="' + showing[j].name + '"' + '">' +
-        ' <div class="mouseOpacity visibility-hidden"><p class="text-center msOver-text" > ' + showing[j].name + '</p> </div></div></div>';
+        ' <div class="mouseOpacity visibility-hidden"><p class="text-center msOver-text" >' + showing[j].name + '</p> </div></div></div>';
       // Añadimos al final del div clase "photo-gallery", la estructura descrita arriba
       $('.photo-gallery').append(structure);
     });
@@ -103,7 +103,7 @@ $(document).ready(function() {
 
 
   /***Función para crear un nuevo post***/
-  var post = function(e) {
+  $('#post-btn').on('click',function(e){
     e.preventDefault;
     //guardando los values de los inputs
     var $postTitle = $('#post-title').val().toUpperCase();
@@ -130,26 +130,88 @@ $(document).ready(function() {
     });
     var $commentBtn = $('<button/>', {
       'class': 'btn',
-      'class': 'btn-primary',
       'type': 'submit'
-    })
+    });
 
-    //dando atributos
-    $title.text($postTitle);
-    $body.text($postBody);
-    $commentBtn.text('More...')
+    var $commentContainer = $('<div/>',{
+        'class':'comment-container'});
 
-    //Colocando en el HTML
-    $($btnCol).append($commentBtn);
-    $($row).append($body);
-    $($row).append($btnCol);
-    $($post).append($title);
-    $($post).append($row);
-    $('#container').prepend($post);
+      //dando atributos
+      $title.text($postTitle);
+      $body.text($postBody);
+      $commentBtn.text('Comenta')
+      $($commentBtn).addClass('btn-primary');
+      $($commentBtn).addClass('btn-comment');
 
-    clear();
-  }
-  $('#post-btn').click(post);
+      //Colocando en el HTML
+      $($btnCol).append($commentBtn);
+      $($row).append($body);
+      $($row).append($btnCol);
+      $($post).append($title);
+      $($post).append($row);
+      $($post).append($commentContainer);
+      $('#container').prepend($post);
+
+      clear();
+
+      /***Función para crear comentario**/
+      $('.btn-comment').on('click',function(){
+
+      // creando elementos
+      var $commentForm = $('<form/>');
+      var $commentInput = $('<textarea/>',{'class':'comment-input'});
+      var $sendCommentBtn = $('<button/>',{'class': 'send-comment-btn'});
+
+      //agregando atributos
+      $commentInput.attr({
+      		'cols' : '1',
+      		'rows' : '3',
+          'placeholder':'Comenta algo...'
+      	});
+      $sendCommentBtn.attr('type','button');
+      $sendCommentBtn.text('Enviar');
+      $sendCommentBtn.addClass('btn','btn-primary');
+
+      //colocandolo en el HTML
+      $($commentForm).append($commentInput);
+      $($commentForm).append($sendCommentBtn);
+      $($commentContainer).append($commentForm);
+
+      //ocultando botón commentBtn
+      $('.btn-comment').hide();
+
+//-------------------------------------------------------------
+      /***Función para postear el comentario***/
+      $('.send-comment-btn').on('click',function(event){
+        event.preventDefault;
+        console.log('holaaaa');
+        var $commentValue = $('.comment-input').val();
+
+        //creando elementos
+        var $commentParagraphContainer = $('<div/>',{'class': 'comment-paragraph-container'});
+        var $commentParagraph = $('<p/>',{'class': 'comment-paragraph'});
+
+        //agregando atributos
+        $commentParagraph.text($commentValue);
+
+        //colocando elementos en HTML
+        $($commentParagraphContainer).append($commentParagraph);
+        $($commentContainer).append($commentParagraphContainer);
+
+        //limpiando el input values
+        //$('.comment-input').val('');
+
+        //ocultando textarea y botón de comentarios
+        $('.comment-input').hide();
+        $('.send-comment-btn').hide();
+
+        // mostrando botón comment
+        $('.btn-comment').show();
+
+      })
+
+    });
+  });
 
 
   /***Función para limpiar los inputs***/
