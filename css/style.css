@@ -206,7 +206,7 @@ body#logIn {
   overflow-x: hidden;
 }
 
-span.glyphicon.glyphicon-user, span.glyphicon.glyphicon-envelope {
+span.glyphicon.glyphicon-user, span.glyphicon.glyphicon-asterisk {
   color: lightblue;
 }
 
@@ -220,6 +220,23 @@ form {
 
 form#init {
   margin-top: 0;
+}
+
+/* Estilos flecha para regresar */
+.arrow-style{
+	color: gray;
+  font-size: 1.5em;
+  padding: 1.4em;
+  text-decoration: none;
+  display: flex;
+  align-items: bottom;
+  justify-content: left;
+}
+/* Estilos de flecha al interactuar con mouse */
+.arrow-style:hover{
+	cursor: pointer;
+	color: #ffffff;
+  text-decoration: none;
 }
 
 /* Términos*/
@@ -377,6 +394,7 @@ div.modal-header, div.modal-body {
 }
 
 /**** Home > Comentar ****/
+
 .comment-input {
   border:none;
   background-color:white;
@@ -385,6 +403,28 @@ div.modal-header, div.modal-body {
   font-size: 1em;
   box-shadow: 1px 1px 3px #777;
 }
+
+#post-btn {
+  padding-left: 2em;
+  padding-right: 2em;
+  display:inline-block;
+
+}
+
+.image-input {
+    margin: 0 auto;
+    margin-bottom: 10px;
+    display:inline;
+}
+
+#file {
+  background-color: #f4f5f7;
+}
+
+.form {
+  display:inline-block;
+}
+
 
 /* Galería de fotos (amigas) en móvil*/
 
@@ -397,4 +437,16 @@ div.modal-header, div.modal-body {
     width: 50%;
     height: 50%;
   }
+  #footer-logo {
+    width: 100px;
+  }
+}
+
+/* Logo footer tablet> desktop*/
+
+@media (min-width:768px) {
+#footer-logo {
+  width:13%;
+}
+
 }

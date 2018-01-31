@@ -116,6 +116,12 @@ $(document).ready(function() {
     var $title = $('<h2/>', {
       'class': 'title'
     });
+
+  /*  var $imgContainer = $('<div/>', {
+      'class': 'image-container'
+    });
+
+    var $img = $('<img/>');*/
     //var $line = $('<hr/>',{'class':'line'});
     var $row = $('<div/>', {
       'class': 'row'
@@ -147,7 +153,9 @@ $(document).ready(function() {
       $($btnCol).append($commentBtn);
       $($row).append($body);
       $($row).append($btnCol);
+      $($imgContainer).append($img);
       $($post).append($title);
+      $($post).append($img);
       $($post).append($row);
       $($post).append($commentContainer);
       $('#container').prepend($post);
@@ -184,7 +192,6 @@ $(document).ready(function() {
       /***Función para postear el comentario***/
       $('.send-comment-btn').on('click',function(event){
         event.preventDefault;
-        console.log('holaaaa');
         var $commentValue = $('.comment-input').val();
 
         //creando elementos
@@ -199,16 +206,14 @@ $(document).ready(function() {
         $($commentContainer).append($commentParagraphContainer);
 
         //limpiando el input values
-        //$('.comment-input').val('');
-
+        $($commentValue).val('');
         //ocultando textarea y botón de comentarios
         $('.comment-input').hide();
         $('.send-comment-btn').hide();
 
         // mostrando botón comment
         $('.btn-comment').show();
-
-      })
+      });
 
     });
   });
