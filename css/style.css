@@ -417,8 +417,14 @@ div.modal-header, div.modal-body {
     display:inline;
 }
 
+#photo {
+  background-color:#ADD8E6;+
+  border:none;
+}
+
 #file {
-  background-color: #f4f5f7;
+  background-color:#ADD8E6;
+  border:none;
 }
 
 .form {
